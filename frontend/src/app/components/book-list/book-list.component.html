@@ -1,0 +1,49 @@
+<div class="book-list-container">
+  <ul *ngIf="!loading && books.length > 0" class="book-list">
+    <li *ngFor="let book of books" class="book-card">
+
+      <div *ngIf="editingBookId !== book.id; else editTitle">
+        <h3>{{ book.title }}</h3>
+      </div>
+      <ng-template #editTitle>
+        <input [(ngModel)]="book.title" />
+      </ng-template>
+
+      <div *ngIf="editingBookId !== book.id; else editAuthor">
+        <p><strong>Autor:</strong> {{ book.author }}</p>
+      </div>
+      <ng-template #editAuthor>
+        <input [(ngModel)]="book.author" />
+      </ng-template>
+
+      <div *ngIf="editingBookId !== book.id; else editPublisher">
+        <p><strong>Editora:</strong> {{ book.publisher }}</p>
+      </div>
+      <ng-template #editPublisher>
+        <input [(ngModel)]="book.publisher" />
+      </ng-template>
+
+      <div *ngIf="editingBookId !== book.id; else editPage">
+        <p><strong>Páginas:</strong> {{ book.pageNumber }}</p>
+      </div>
+      <ng-template #editPage>
+        <input type="number" [(ngModel)]="book.pageNumber" />
+      </ng-template>
+
+      <div *ngIf="editingBookId !== book.id; else editDate">
+        <p><strong>Publicado em:</strong> {{ book.publishedDate | date:'yyyy-MM-dd' }}</p>
+      </div>
+      <ng-template #editDate>
+        <input type="date" [(ngModel)]="book.publishedDate" />
+      </ng-template>
+
+      <button *ngIf="editingBookId !== book.id" (click)="editBook(book.id!)">Editar</button>
+      <button *ngIf="editingBookId === book.id" (click)="saveBook(book.id!)">Salvar</button>
+      <button *ngIf="editingBookId === book.id" (click)="cancelEdit()">Cancelar</button>
+      <button  (click)="deleteBook(book.id!)"> Deletar </button>
+      
+
+    </li>
+  </ul>
+</div>
+

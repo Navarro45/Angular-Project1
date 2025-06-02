@@ -1,0 +1,22 @@
+.app-book-form{
+    display: flex;
+    flex-direction: column;
+    max-width: 35%;
+    padding: 5px;
+    margin: 11%;
+    justify-self: center;
+}
+
+.app-book-form input{
+    padding: 8px;
+    margin: 2px;
+    border-radius: 8px;
+    font-size: medium;
+}
+
+.app-book-form button{
+    padding: 8px;
+    margin: 2px;
+    border-radius: 8px;
+    font-size: medium;
+}

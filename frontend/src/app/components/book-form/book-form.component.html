@@ -1,0 +1,26 @@
+
+<form  [formGroup]="bookForm" (ngSubmit)="OnSubmit()" class="app-book-form">
+
+    <p>Title:</p>
+    <input type="text" formControlName="title"/>
+    
+    <p>Author:</p>
+    <input type="text" formControlName="author"/>
+
+    <p>Publisher: </p>
+    <input type="text" formControlName="publisher"/>
+
+    <p>Page Number:</p>
+    <input type="number" formControlName="pageNumber"/>
+ 
+    <p>Published Date: </p>
+    <input type="date" formControlName="publishedDate"/>
+ 
+    <button type="submit" [disabled]="bookForm.invalid">Add Book</button>
+</form>
+
+
+
+
+
+
